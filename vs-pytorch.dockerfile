@@ -452,7 +452,7 @@ RUN git clone https://github.com/dubhater/vapoursynth-sangnom --depth 1 && cd va
     mkdir build && cd build && meson ../ && ninja && ninja install
 RUN ln -s /usr/local/lib/x86_64-linux-gnu/libsangnom.so /usr/local/lib/vapoursynth/libsangnom.so
 
-# TensoRaw's plugins
+# EutropicAI's forks
 # descale
 RUN git clone https://github.com/EutropicAI/vapoursynth-descale --depth 1 && cd vapoursynth-descale && \
     mkdir build && cd build && meson ../ && ninja && ninja install
@@ -558,6 +558,6 @@ RUN pip install --no-cache-dir cupy-cuda12x
 
 # install EutropicAI's packages
 RUN pip install --no-cache-dir \
-    mbfunc==0.1.0 \
-    ccrestoration==0.2.1 \
-    ccvfi==0.0.1
+    mbfunc==0.2.0 \
+    ccrestoration==0.2.2 \
+    ccvfi==0.0.3

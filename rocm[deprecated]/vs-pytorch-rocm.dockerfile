@@ -233,7 +233,7 @@ RUN git clone https://github.com/dubhater/vapoursynth-sangnom --depth 1 && cd va
     mkdir build && cd build && meson ../ && ninja && ninja install
 RUN ln -s /usr/local/lib/x86_64-linux-gnu/libsangnom.so /usr/local/lib/vapoursynth/libsangnom.so
 
-# TensoRaw's plugins
+# EutropicAI's forks
 # descale
 RUN git clone https://github.com/EutropicAI/vapoursynth-descale --depth 1 && cd vapoursynth-descale && \
     mkdir build && cd build && meson ../ && ninja && ninja install
@@ -293,35 +293,15 @@ RUN ln -s /usr/local/lib/libbm3dcpu.so /usr/local/lib/vapoursynth/libbm3dcpu.so
 ###
 
 # install python packages with specific versions!!!
-RUN pip install \
+RUN pip install --no-cache-dir \
     numpy==1.26.4 \
     opencv-python==4.10.0.84
 
 # install vsutil
-RUN pip install vsutil==0.8.0
-
-# install Jaded Encoding Thaumaturgy's func package (Why you *** require python >= 3.12?)
-# fix import error in my branch
-RUN pip install git+https://github.com/EutropicAI/vs-tools-2.3.0.git
-RUN pip install \
-    vspyplugin==1.3.2 \
-    vskernels==2.4.1 \
-    vsexprtools==1.4.6 \
-    vsrgtools==1.5.1 \
-    vsmasktools==1.1.2 \
-    vsaa==1.8.2 \
-    vsscale==1.9.1 \
-    vsdenoise==2.4.0 \
-    vsdehalo==1.7.2 \
-    vsdeband==1.0.2 \
-    vsdeinterlace==0.5.1 \
-    vssource==0.9.5
+RUN pip install --no-cache-dir vsutil==0.8.0
 
 # install maven's func package
-RUN pip install git+https://github.com/HomeOfVapourSynthEvolution/mvsfunc.git
-
-# install holywu's func package
-RUN pip install git+https://github.com/HomeOfVapourSynthEvolution/havsfunc.git
+RUN pip install --no-cache-dir git+https://github.com/HomeOfVapourSynthEvolution/mvsfunc.git
 
 # install PyTorch
 #RUN pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.1
@@ -344,7 +324,7 @@ RUN location=$(pip show torch | grep Location | awk -F ": " '{print $2}') && \
     cp /opt/rocm/lib/libhsa-runtime64.so.1.2 libhsa-runtime64.so
 
 # install EutropicAI's packages
-RUN pip install \
-    mbfunc==0.1.0 \
-    ccrestoration==0.2.1 \
-    ccvfi==0.0.1
+RUN pip install --no-cache-dir \
+    mbfunc==0.2.0 \
+    ccrestoration==0.2.2 \
+    ccvfi==0.0.3

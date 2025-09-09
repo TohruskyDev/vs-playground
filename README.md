@@ -128,7 +128,6 @@ make pt && make pg
 
 - [static-ffmpeg](https://github.com/wader/static-ffmpeg)
 - [VSGAN-tensorrt-docker](https://github.com/styler00dollar/VSGAN-tensorrt-docker)
-- [vs-ffmpeg-docker](https://github.com/EutropicAI/vs-ffmpeg-docker)
 - [VapourSynth](https://www.vapoursynth.com/)
 - [yuuno](https://github.com/Irrational-Encoding-Wizardry/yuuno)
 
